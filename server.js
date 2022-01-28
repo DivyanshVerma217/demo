@@ -1,5 +1,5 @@
 
-// const path = require('path')
+const path = require('path')
 
 
 
@@ -22,14 +22,14 @@ app.use("/api/course/",courseRoute);
 app.use("/api/question/", quesRoute);
 app.use("/api/quiz/", quizRoute);
 
-// app.use(express.static(path.join(__dirname, "client", "build")));
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-// });
-
-app.get("/", (req, res) => {
-  res.send("server working");
+app.use(express.static(path.join(__dirname, "client", "build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
+
+// app.get("/", (req, res) => {
+//   res.send("server working");
+// });
 
 const port = process.env.PORT || 4000;
 
